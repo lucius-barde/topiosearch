@@ -1,26 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TopioForm placeholder="Entrez-voir un mot d'chez nous..." />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TopioForm from './components/TopioForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TopioForm
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
