@@ -77,7 +77,9 @@
           </p>
         </article>
     </div>-->
-
+    <footer>
+      <p style="text-align:center; color:var(--muted-color)"><small><small>&copy; 2023 Lucius</small></small></p>
+    </footer>
   </main>
 </template>
 
