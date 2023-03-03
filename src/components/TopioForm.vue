@@ -8,11 +8,10 @@
           <h2>
             <strong><a style="text-decoration:none; color:var(--muted-color)" href="">Outil de recherche suisse romand</a></strong>
             <br /><br />
-            <small>Recherchez la définition d'un terme <br />ou l'origine d'un nom de lieu <br /> sur plusieurs lexiques simultanément.</small>
+            <small>Recherchez la définition d'un terme ou l'origine d'un nom de lieu sur plusieurs lexiques simultanément.</small>
             <br />
             <small><small><em>Exemples: huitante, Lausanne, clédar, caïon, niolu...</em></small></small>
           </h2>
-          
         </hgroup>
       </header>
       <br />
@@ -24,11 +23,12 @@
       </form>
     </div>
     <div id="topiosearch-loading" v-if="topioSearchLoading">
-      <h6>Recherche sur : {{ topioSearchLoading }}...</h6>
+      <h6><small>Recherchons-voir ce commerce sur: <br />{{ topioSearchLoading }}...</small></h6>
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
    
     <div id="topiosearch-results" v-if="topioSearchedTerm && topioSearchResults.length >= 1 && topioSearchResults[0].params">
-        <h6>Résultats de la recherche pour: {{ topioSearchedTerm }}</h6>
+        <h6>Bon bah voilà les résultats pour "{{ topioSearchedTerm }}" !</h6>
         <article v-for="entry in topioSearchResults" v-bind:key="entry.url">
           <h3>{{ entry.params.term }} 
             <small v-if="entry.params.meta.type">
@@ -59,8 +59,8 @@
     </div>
     <div v-else-if="topioSearchedTerm && topioSearchResults.length == 0">
       <h6>
-        Aucun résultat pour: {{ topioSearchedTerm }}<br />
-        <small style="font-weight:normal;">Essayez avec une orthographe différente (avec ou sans les accents, majuscules, prépositions etc.)</small>
+        Tetcheu ! Rien trouvé pour "{{ topioSearchedTerm }}" !<br />
+        <small style="font-weight:normal;">Essayez-voir avec une orthographe différente (avec ou sans les accents, majuscules, prépositions etc.)</small>
       </h6>
     </div>
 
@@ -78,7 +78,7 @@
         </article>
     </div>-->
     <footer>
-      <p style="text-align:center; color:var(--muted-color)"><small><small>&copy; 2023 Lucius</small></small></p>
+      <p style="text-align:center; color:var(--muted-color)"><small><small>&copy; 2023 <a href="https://www.oppidumweb.net">Lucius Barde</a></small></small></p>
     </footer>
   </main>
 </template>
@@ -119,6 +119,7 @@ export default {
           }
 
           
+          this.topioSearchLoading = 'henrysuter.ch (lieux)';
           fetch('https://api.oppidumweb.net/topiosearch/hsuternames?term='+this.topiosearch, {
               headers : { 
               'Content-Type': 'application/json',
@@ -155,6 +156,7 @@ export default {
                   this.topioSearchLoading = '';
                   this.topioSearchedTerm = this.topiosearch;
             
+
               }); //endfetch topio.ch
           }); //endfetch hsuter names
         }); //endfetch hsuter
@@ -253,4 +255,62 @@ h1,h2,#topiosearch-loading, #topiosearch-results h6{
   width:200px;
   margin:auto;
 }
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--primary-hover);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
 </style>
