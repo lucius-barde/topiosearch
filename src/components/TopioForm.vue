@@ -78,7 +78,7 @@
         </article>
     </div>-->
     <footer>
-      <p style="text-align:center; color:var(--muted-color)"><small><small>&copy; 2023 <a href="https://www.oppidumweb.net">Lucius Barde</a></small></small></p>
+      <p style="text-align:center; color:var(--muted-color)"><small><small>&copy; 2023 <a href="https://www.bardic.space">Lucius Barde</a></small></small></p>
     </footer>
   </main>
 </template>
