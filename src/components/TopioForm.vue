@@ -105,7 +105,7 @@ export default {
 
       //Fetch from henrysuter.ch words
       this.topioSearchLoading = 'henrysuter.ch (lexique)';
-      fetch('https://api.oppidumweb.net/topiosearch/hsuter?term='+this.topiosearch, {
+      fetch('https://api.bardic.space/topiosearch/hsuter?term='+this.topiosearch, {
          headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -120,7 +120,7 @@ export default {
 
           
           this.topioSearchLoading = 'henrysuter.ch (lieux)';
-          fetch('https://api.oppidumweb.net/topiosearch/hsuternames?term='+this.topiosearch, {
+          fetch('https://api.bardic.space/topiosearch/hsuternames?term='+this.topiosearch, {
               headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'
@@ -138,7 +138,7 @@ export default {
 
               //Fetch from topio.ch
               this.topioSearchLoading = 'topio.ch (lexique)';
-              fetch('https://api.oppidumweb.net/topiosearch/topio?term='+this.topiosearch, {
+              fetch('https://api.bardic.space/topiosearch/topio?term='+this.topiosearch, {
                   headers : { 
                   'Content-Type': 'application/json',
                   'Accept': 'application/json'
