@@ -255,6 +255,9 @@ h1,h2,#topiosearch-loading, #topiosearch-results h6{
   width:200px;
   margin:auto;
 }
+#topiosearch-form{
+  text-align:center;
+}
 
 .lds-ellipsis {
   display: inline-block;
